@@ -33,7 +33,8 @@ class CarInterface(CarInterfaceBase):
 
     gas_max_bp = [10., 20., 50., 70., 130., 150.]
     #gas_max_v = [1.5, 1.23, 0.67, 0.47, 0.16, 0.1] #telly
-    gas_max_v = [1.3, 1.1, 0.63, 0.44, 0.15, 0.1] #neokki
+    #gas_max_v = [1.3, 1.1, 0.63, 0.44, 0.15, 0.1] #neokki
+    gas_max_v = [1.1, 1.0, 0.63, 0.44, 0.15, 0.1]
 
     return CarControllerParams.ACCEL_MIN, interp(v_current_kph, gas_max_bp, gas_max_v)
 
@@ -106,8 +107,8 @@ class CarInterface(CarInterfaceBase):
 
     ret.stopAccel = min(ntune_scc_get('stopAccel'), -2.0)
     ret.stoppingDecelRate = max(ntune_scc_get('stoppingDecelRate'), 0.4) #0.4  # brake_travel/s while trying to stop
-    ret.vEgoStopping = max(ntune_scc_get('vEgoStopping'), 0.4) #0.5
-    ret.vEgoStarting = max(ntune_scc_get('vEgoStarting'), 0.4) #0.5 # needs to be >= vEgoStopping to avoid state transition oscillation
+    ret.vEgoStopping = max(ntune_scc_get('vEgoStopping'), 0.3) #0.5
+    ret.vEgoStarting = max(ntune_scc_get('vEgoStarting'), 0.3) #0.5 # needs to be >= vEgoStopping to avoid state transition oscillation
 
     # genesis
     if candidate == CAR.GENESIS:
