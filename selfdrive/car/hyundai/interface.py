@@ -31,10 +31,11 @@ class CarInterface(CarInterfaceBase):
 
     v_current_kph = current_speed * CV.MS_TO_KPH
 
-    gas_max_bp = [10., 20., 50., 70., 130., 150.]
+    #gas_max_bp = [10., 20., 50., 70., 130., 150.]
+    gas_max_bp = [0., 3., 5., 20., 50., 70., 130., 150.]
     #gas_max_v = [1.5, 1.23, 0.67, 0.47, 0.16, 0.1] #telly
     #gas_max_v = [1.3, 1.1, 0.63, 0.44, 0.15, 0.1] #neokki
-    gas_max_v = [0.9, 0.75, 0.63, 0.44, 0.15, 0.1]
+    gas_max_v = [0.7, 0.8, 0.9, 1.0, 0.63, 0.44, 0.15, 0.1]
 
     return CarControllerParams.ACCEL_MIN, interp(v_current_kph, gas_max_bp, gas_max_v)
 
