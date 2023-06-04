@@ -26,7 +26,7 @@ A_CRUISE_MIN = -1.2
 #A_CRUISE_MAX_BP = [0., 15., 25., 40.]
 
 # apilot
-A_CRUISE_MAX_VALS = [1.6, 1.2, 0.8, 0.6]
+A_CRUISE_MAX_VALS = [1.7, 1.4, 0.8, 0.6]
 A_CRUISE_MAX_BP = [0., 10.0, 25., 40.]
 
 # Lookup table for turns
