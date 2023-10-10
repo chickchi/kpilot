@@ -53,8 +53,8 @@ class CarInterface(CarInterfaceBase):
     tire_stiffness_factor = 1.
     ret.maxSteeringAngleDeg = 1000.
 
-    ret.steerFaultMaxAngle = 90
-    ret.steerFaultMaxFrames = 95
+    ret.steerFaultMaxAngle = 85
+    ret.steerFaultMaxFrames = 90
 
     ret.disableLateralLiveTuning = False
 
@@ -108,8 +108,8 @@ class CarInterface(CarInterfaceBase):
 
     ret.stopAccel = min(ntune_scc_get('stopAccel'), -2.0)
     ret.stoppingDecelRate = max(ntune_scc_get('stoppingDecelRate'), 0.4) #0.4  # brake_travel/s while trying to stop
-    ret.vEgoStopping = max(ntune_scc_get('vEgoStopping'), 0.3) #0.5
-    ret.vEgoStarting = max(ntune_scc_get('vEgoStarting'), 0.5) #0.5 # needs to be >= vEgoStopping to avoid state transition oscillation
+    ret.vEgoStopping = max(ntune_scc_get('vEgoStopping'), 0.15) #0.5
+    ret.vEgoStarting = max(ntune_scc_get('vEgoStarting'), 0.2) #0.5 # needs to be >= vEgoStopping to avoid state transition oscillation
 
     # genesis
     if candidate == CAR.GENESIS:
