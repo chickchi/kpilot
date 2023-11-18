@@ -312,14 +312,16 @@ class CarInterface(CarInterfaceBase):
     ret.pcmCruise = not ret.openpilotLongitudinalControl
 
     ret.stoppingControl = True
-    ret.startingState = False # True # startAccel을 적용하는 startingState를 막음.
-    ret.vEgoStarting = 0.3
-    ret.vEgoStopping = 0.3
+    ret.startingState = True # True # startAccel을 적용하는 startingState를 막음.
+    ret.vEgoStarting = 0.3 # 출발 감시 하는 값낮을 수록 민감하게 반응
+    ret.vEgoStopping = 0.5 # 0.3 default stop 조건으로 너무 낮추면 슬금슬금 갈수 있다,.
     ret.startAccel = 2.0
     ret.stoppingDecelRate = 0.4 # brake_travel/s while trying to stop
     ret.longitudinalActuatorDelayLowerBound = 0.5
     ret.longitudinalActuatorDelayUpperBound = 0.5
 
+    ret.radarTimeStep = (1.0 / 50) # 50Hz   SCC11, RadarTrack은 50Hz
+    
     # *** feature detection ***
     if candidate in CANFD_CAR:
       bus = 5 if ret.flags & HyundaiFlags.CANFD_HDA2 else 4
