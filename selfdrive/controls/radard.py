@@ -326,8 +326,8 @@ def radard_thread(sm=None, pm=None, can_sock=None):
       }
     pm.send('liveTracks', dat)
 
-    rk.monitor_time()
-
+    rk.monitor_time() #radar timing 50hz
+    #rk.keep_time() #radar timing 20hz
 
 def main(sm=None, pm=None, can_sock=None):
   radard_thread(sm, pm, can_sock)
